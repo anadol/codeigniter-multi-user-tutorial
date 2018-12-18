@@ -12,7 +12,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 card card-block bg-light col-4 mx-auto">
-        <form action="<?php echo base_url("giris-yap"); ?>">
+        <form action="<?php echo base_url("giris-yap"); ?>" method="post">
           <div class="form-group">
             <br>
             <label>E-posta Adresiniz</label>
