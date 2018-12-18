@@ -11,6 +11,12 @@ class Users extends CI_Controller{
 
 		echo "deneme";
 	}
+
+
+	public function login_form(){
+
+		$this->load->view("Login_v");
+	}
 }
 
  ?>
