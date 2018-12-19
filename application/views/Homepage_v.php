@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <title>Anasayfa</title>
   <link rel="stylesheet" href="<?php echo base_url("assets/css/bootstrap.min.css"); ?>">
+  <style>
+    *{
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -18,8 +23,20 @@
           İşlemler
         </a>
         <ul class="dropdown-menu">
+          
+          <?php foreach ($user_list as $item) { ?>
+            <?php if (md5($item->email) != md5($user->email)) { ?>
+           
+             <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("anasayfa/".md5($item->email)); ?>"><strong><?php echo $item->full_name; ?></strong> ile oturum aç</a></li>   
+              
+            <?php } ?>
+           
+          <?php } ?>
+
+          <div class="dropdown-divider"></div>
+          <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>"><strong>Farklı bir hesapla oturum aç</strong></a></li>
+          <div class="dropdown-divider"></div>
           <li><a class="dropdown-item" href="<?php echo base_url("cikis/".md5($user->email)); ?>">Çıkış</a></li>
-          <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesapla oturum aç</a></li>
         </ul>
       </li>
     </ul>
@@ -29,10 +46,10 @@
   <div class="container"><br>
     <div class="row">
       <div class="col-md-5 card card-block bg-light col-3 mx-auto">
-        <h4>Eklediğiniz Ürünler</h4>
+        <h4 class="text-center" style="margin-top: 10px;">Eklediğiniz Ürünler</h4>
         <table class="table table-hover table-striped table-bordered">
           <thead>
-            <th>id</th>
+            <th>Id</th>
             <th>Ürün Adı</th>
           </thead>
           <tbody>
@@ -55,21 +72,3 @@
 <script src="<?php echo base_url("assets/js/bootstrap.min.js") ?>"></script>
 </body>
 </html>
-
-
-<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><?php echo $user->full_name; ?></a>
-  
-  <div class="collapse navbar-collapse" id="navbarNav">
-   <div class="dropdown show ml-auto" >
-  <a class="btn btn-secondary dropdown-toggle"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    İşlemler
-  </a>
-
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a>
-    <a class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesapla oturum aç</a>
-  </div>
-</div>
-  </div>
-</nav> -->
