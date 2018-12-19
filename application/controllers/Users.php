@@ -11,7 +11,18 @@ class Users extends CI_Controller{
 
 	public function index(){
 
-		echo "deneme";
+		$user_list = $this->session->userdata("user_list");
+
+		if ($user_list) {
+			
+			$user = reset($user_list);
+			redirect(base_url("anasayfa/".md5($user->email)));
+		}
+
+		else{
+
+			redirect(base_url("giris"));
+		}
 	}
 
 
