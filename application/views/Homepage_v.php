@@ -18,7 +18,7 @@
           İşlemler
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a></li>
+          <li><a class="dropdown-item" href="<?php echo base_url("cikis/".md5($user->email)); ?>">Çıkış</a></li>
           <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesapla oturum aç</a></li>
         </ul>
       </li>
