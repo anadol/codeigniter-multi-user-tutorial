@@ -13,6 +13,17 @@ class Home extends CI_Controller{
 		$active_user = $user_list[$id];
 		$viewData = new stdClass();
 		$viewData->user = $active_user;
+
+		$this->load->model("user_product_model");
+
+		$viewData->products = $this->user_product_model->get_all(
+
+			array(
+
+				"user_id" => $active_user->id
+			)
+		);
+
 		$this->load->view("Homepage_v", $viewData);
 	}
 }
