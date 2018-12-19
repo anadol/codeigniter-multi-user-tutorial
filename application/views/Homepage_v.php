@@ -7,14 +7,20 @@
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">ebubekirb</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link navbar-brand mb-0 h1" href="#">Çıkış</a>
+  <a class="navbar-brand" href="#"><?php echo $user->full_name; ?></a>
+  
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+    <ul class="navbar-nav mr-auto">
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          İşlemler
+        </a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a></li>
+          <li><a target="_blank" class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesapla oturum aç</a></li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -55,5 +61,29 @@
       </div>
     </div>
   </div>
+  
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+<script src="<?php echo base_url("assets/js/bootstrap.min.js") ?>"></script>
 </body>
 </html>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#"><?php echo $user->full_name; ?></a>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+   <div class="dropdown show ml-auto" >
+  <a class="btn btn-secondary dropdown-toggle"  href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    İşlemler
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="<?php echo base_url("cikis"); ?>">Çıkış</a>
+    <a class="dropdown-item" href="<?php echo base_url("giris"); ?>">Farklı bir hesapla oturum aç</a>
+  </div>
+</div>
+  </div>
+</nav> -->

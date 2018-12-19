@@ -52,29 +52,35 @@ class Users extends CI_Controller{
 
 				else{
 
-					$user_list = array();
+					$user_list = [];
 				}
 				
-				$user_list[$user->email] = $user;
+				$user_list[md5($user->email)] = $user;
 				$this->session->set_userdata("user_list", $user_list);
 				print_r($user_list);
+
+				redirect(base_url("anasayfa/".md5($user->email)));
 
 			} else {
 				
 				$this->load->view("Login_v");
 			}
 
-
-			//print_r($user);
 		}
 
-		// $this->load->view("Homepage_v");
 	}
 
 
 	public function login_form(){
 
 		$this->load->view("Login_v");
+	}
+
+
+
+	public function sil(){
+
+		$this->session->unset_userdata("user_list");
 	}
 
 
