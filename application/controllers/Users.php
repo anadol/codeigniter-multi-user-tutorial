@@ -43,7 +43,29 @@ class Users extends CI_Controller{
 					"password"	=> md5($this->input->post("sifre"))
 				));
 
-			print_r($user);
+			if ($user) {
+
+				if ($this->session->userdata("user_list")) {
+					
+					$user_list = $this->session->userdata("user_list");
+				}
+
+				else{
+
+					$user_list = array();
+				}
+				
+				$user_list[$user->email] = $user;
+				$this->session->set_userdata("user_list", $user_list);
+				print_r($user_list);
+
+			} else {
+				
+				$this->load->view("Login_v");
+			}
+
+
+			//print_r($user);
 		}
 
 		// $this->load->view("Homepage_v");
